@@ -1,13 +1,15 @@
 use_bpm 83
 #variables
 thundercat = "C:/Users/jordan_howell/Music/Thundercat 'Them Changes' - Vocals_2.wav"
+a= 0.25
 
 live_loop :intro_kick  do
   4.times do
-    sample :drum_bass_soft
+    sample :drum_bass_soft, amp: a
     sleep 1
-    sample :drum_snare_hard
+    sample :drum_snare_hard, amp: a
     sleep 1
+    a = a+0.25
   end
   stop
 end

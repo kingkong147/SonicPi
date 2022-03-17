@@ -2,6 +2,14 @@ use_bpm 83
 #variables
 thundercat = "C:/Users/jordan_howell/Music/Thundercat 'Them Changes' - Vocals_2.wav"
 a= 0.25
+thunder = ["b2", "g2", "a2", "f2", "e2", "e2", "e2", "e2" ]
+b= 0
+define :cords do |n1, n2, n3|
+  play n1
+  play n2
+  play n3
+  sleep 0.5
+end
 
 live_loop :intro_kick  do
   4.times do
@@ -107,54 +115,23 @@ live_loop :guitar_main do
     sleep 0.25
     play :b2
     sleep 0.25
-    play :a3
-    play :e3
-    play :c3
-    sleep 0.5
-    play :a3
-    play :e3
-    play :c3
-    sleep 0.5
-    play :a3
-    play :e3
-    play :c3
-    sleep 0.5
-    play :a3
-    play :e3
-    play :c3
-    sleep 0.5
-    play :a3
-    play :e3
-    play :c3
-    sleep 0.5
-    play :a3
-    play :e3
-    play :c3
-    sleep 0.5
-    play :a3
-    play :e3
-    play :c3
-    sleep 0.5
+    cords :a3, :e3, :c3
+    cords :a3, :e3, :c3
+    cords :a3, :e3, :c3
+    cords :a3, :e3, :c3
+    cords :a3, :e3, :c3
+    cords :a3, :e3, :c3
+    cords :a3, :e3, :c3
   end
 end
 sleep 8
 live_loop :bass_main do
-  play :b2
-  sleep 1
-  play :g2
-  sleep 1
-  play :a2
-  sleep 1
-  play :f2
-  sleep 1
-  play :e2
-  sleep 1
-  play :e2
-  sleep 1
-  play :e2
-  sleep 1
-  play :e2
-  sleep 1
+  8.times do
+    play (thunder[b])
+    sleep 1
+    b = b +1
+  end
+  b = 0
 end
 live_loop :vocals_main do
   sample thundercat, amp:3
